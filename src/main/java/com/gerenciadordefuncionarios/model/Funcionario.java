@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 public class Funcionario {
@@ -12,10 +14,14 @@ public class Funcionario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;	
 		
-		private String nome;
-		private String email;
-		private String cargo;
-		private String urlImagem;
+
+	@NotBlank(message = "O nome do funcionario deve ser preenchido")// Avisa sobre o null
+	@Size (min= 3, max = 75)
+	private String nome;
+	
+	private String email;
+	private String cargo;
+	private String urlImagem;
 	
 	public long getId() {
 		return id;
@@ -32,20 +38,20 @@ public class Funcionario {
 	
 	}
 		
-	public String getemail() {
+	public String getEmail() {
 		return email;
 	
 	}
 		
-	public void setemail(String email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
 		
 		
-	public String getcargo() {
+	public String getCargo() {
 		return cargo;
 	}
-	public void setcargo(String cargo) {
+	public void setCargo(String cargo) {
 		this.cargo = cargo;
 	}
 	

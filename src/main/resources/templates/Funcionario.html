@@ -1,41 +1,65 @@
 <!Doctype html>
-
-<html lang="PT-BR">
-	<head>
+<html>
+<head>
+	<meta charset="UTF-8" />
 	
-		<meta charset="UTF-8" />
-		<title>Funcionario</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 	
-	</head>
+	<title>Gerenciador de Funcionarios</title>
+</head>
+<body>
 	
-	
-	<body>
-	
-	<h1 style="margin: 15px 0px 15px 10px;">Imperio CAR 061</h1>
+	<div class="container">
+		<h1>Lista de funcionarios</h1>
 		
-	
-				<div class="mb-3">
-				    <label for="funcionario" class="form-label">Nome do Funcionario:</label>
-				    <input type="text" class="form-control" id="funcionario" th:field="*{funcionario}" placeholder=" Ex: Igor Dantas Sales">
-				    <span th:if="${#fields.hasErrors('funcionario')}" th:errors="*{funcionario}"></span>
-				</div>
+		<div style="float: right;">
 				
-				<div class="mb-3">
-				    <label for="funcionario" class="form-label">E-mail do Funcionario:</label>
-				    <input type="text" class="form-control" id="funcionario" th:field="*{funcionario}" placeholder="Ex: Igorsales@gmail.com">
-				    <span th:if="${#fields.hasErrors('funcionario')}" th:errors="*{funcionario}"></span>
-				</div>
-				
-				<div class="mb-3">
-				    <label for="funcionario" class="form-label">Cargo:</label>
-				    <input type="text" class="form-control" id="funcionario" th:field="*{funcionario}" placeholder="Ex: Atendente ">
-				    <span th:if="${#fields.hasErrors('funcionario')}" th:errors="*{funcionario}"></span>
-				</div>
-				
-				
+		<a href="adcionar_funcionario" type="button" class="btn btn-info">Novo Funcionario</a> 
 		
-					
-  				
-	</body>
-
+		</div>
+		
+		
+			<table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">Nome</th>
+		      <th scope="col">E-mail</th>
+		      <th scope="col">Cargo</th>
+		      <th scope="col">Imagem</th>
+		       <th scope="col">Ações</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr th:each="funcionario: ${funcionarios}">
+		      <td th:text="${funcionario.nome}"></td>
+		      <td th:text="${funcionario.email}"></td>
+		      <td th:text="${funcionario.cargo}"></td>
+		      
+		      
+		      <td>		      	
+		      	<img src="#" th:src="${funcionario.urlImagem}" style="width:25px"/>		      			      
+		      </td>
+		      <td>	     
+		      <button type="button" class="btn btn-primary">EDITAR</button>
+		      <button type="button" class="btn btn-danger">DELETAR</button>
+		      </td>
+		    </tr>
+		   </tbody>
+		</table>
+	</div>
+</body>
+	
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

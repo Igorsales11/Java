@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.gerenciadordefuncionarios.repository.FuncionarioRepository;
 import com.gerenciadordefuncionarios.model.Funcionario;
 
-
-
 @Controller
 public class FuncionarioController {
 	
@@ -19,17 +17,19 @@ public class FuncionarioController {
 	private FuncionarioRepository FuncionarioRepository;
 	
 	@GetMapping("/")
-	public String GerenciadordeFuncionarios() {
+	public String paginaInicial() {
 	return "index.html";
 	}
 	
 		
 	@GetMapping("/Funcionario")
-	public String listaFuncionario(Model model) {
-				
-	List<Funcionario> Funcionario = FuncionarioRepository.findAll();
-	model.addAttribute("funcionario", Funcionario);
-	return "funcionario";
+	public String ListarFuncionarios(Model model) {
+		List<Funcionario> funcionarios = FuncionarioRepository.findAll();
+		model.addAttribute("funcionarios", funcionarios);
+		
+		return "Funcionario";
 	}
+	
+	
 
 }
