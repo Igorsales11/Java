@@ -1,0 +1,41 @@
+<!Doctype html>
+
+<html lang="PT-BR">
+	<head>
+	
+		<meta charset="UTF-8" />
+		<title>Funcionario</title>
+	
+	</head>
+	
+	
+	<body>
+	
+	<h1 style="margin: 15px 0px 15px 10px;">Imperio CAR 061</h1>
+		
+	
+				<div class="mb-3">
+				    <label for="funcionario" class="form-label">Nome do Funcionario:</label>
+				    <input type="text" class="form-control" id="funcionario" th:field="*{funcionario}" placeholder=" Ex: Igor Dantas Sales">
+				    <span th:if="${#fields.hasErrors('funcionario')}" th:errors="*{funcionario}"></span>
+				</div>
+				
+				<div class="mb-3">
+				    <label for="funcionario" class="form-label">E-mail do Funcionario:</label>
+				    <input type="text" class="form-control" id="funcionario" th:field="*{funcionario}" placeholder="Ex: Igorsales@gmail.com">
+				    <span th:if="${#fields.hasErrors('funcionario')}" th:errors="*{funcionario}"></span>
+				</div>
+				
+				<div class="mb-3">
+				    <label for="funcionario" class="form-label">Cargo:</label>
+				    <input type="text" class="form-control" id="funcionario" th:field="*{funcionario}" placeholder="Ex: Atendente ">
+				    <span th:if="${#fields.hasErrors('funcionario')}" th:errors="*{funcionario}"></span>
+				</div>
+				
+				
+		
+					
+  				
+	</body>
+
+</html>
